@@ -16,12 +16,12 @@
 <body>
     <header>
         <div class="header">
-            <div class="top-header">
-                <div class="logo">
+            <div class="header-top">
+                <div class="header-logo">
                     <img src="./assets/images/logo-task5.png" alt="Logo" title="Logo">
                 </div>
 
-                <div class="right-header">
+                <div class="header-nav">
                     <div class="menu-toggle">&#9776;</div>
                     <nav class="menu-header">
                         <ul>
@@ -32,20 +32,20 @@
                             <li><a href="#support">Support</a></li>
 
                             <li class="mobile-donate">
-                                <div class="right-btn">
+                                <div class="header-cta">
                                     <a href="#" class="btn">Donate</a>
                                 </div>
                             </li>
                         </ul>
                     </nav>
-                    <div class="right-btn">
+                    <div class="header-cta">
                         <a href="#" class="btn">Donate</a>
                     </div>
                 </div>
 
             </div>
 
-            <div class="bottom-header">
+            <!-- <div class="bottom-header">
                 <div class="img-header">
                     <img src="./assets/images/img-bottom-header.png" alt="Hình ảnh" title="Hình ảnh lớn">
                 </div>
@@ -67,11 +67,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </header>
 
     <main>
+        <section class="hero-banner">
+            <div class="hero-banner-container">
+                <div class="hero-banner-image">
+                    <img src="./assets/images/hero-banner.png" alt="Hình ảnh" title="Hero-banner">
+                </div>
+                <div class="hero-banner-content">
+                    <h1>Torah. Community. Connection.</h1>
+                    <div class="hero-banner-actions">
+                        <div class="btn btn-our-community">
+                            <a href="#">Join Our Community</a>
+                        </div>
+                        <p>A vibrant hub for Torah learning in the Englewood community.</p>
+                        <div class="hero-banner-meta">
+                            <div class="hero-banner-avatar">
+                                <img src="./assets/images/small-img-1.png" alt="avatar1">
+                                <img src="./assets/images/small-img-2.png" alt="avatar2">
+                                <img src="./assets/images/small-img-3.png" alt="avatar3">
+                                <img src="./assets/images/small-img-4.png" alt="avatar4">
+                            </div>
+                            <p>Over 70 active participants</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="about" id="about">
             <div class="about-content">
                 <div class="link link-about">
@@ -84,23 +109,23 @@
                     strengthen our connection to Torah. </p>
             </div>
 
-            <div class="bottom-content">
+            <div class="about-layout">
                 <div class="stats-banner">
                     <div class="content-main">
                         <div class="row-content-about">
-                            <h3>70+</h3>
+                            <h3><span class="counter" data-target="70">0</span>+</h3>
                             <p>Active Participants</p>
                         </div>
                         <div class="row-content-about">
-                            <h3>6</h3>
+                            <h3><span class="counter" data-target="6">0</span></h3>
                             <p>Rabbinic Leadership</p>
                         </div>
                         <div class="row-content-about">
-                            <h3>10+</h3>
+                            <h3><span class="counter" data-target="10">0</span>+</h3>
                             <p>Weekly classes</p>
                         </div>
                         <div class="row-content-about">
-                            <h3>2019</h3>
+                            <h3><span class="counter" data-target="2019">0</span></h3>
                             <p>Year founded</p>
                         </div>
                     </div>
@@ -118,8 +143,8 @@
                             daily life while fostering a sense of unity among all participants—regardless of shul
                             affiliation.</p>
                     </div>
-                    <div class="our-group">
-                        <div class="our-group-row">
+                    <div class="feature-listing ">
+                        <div class="feature-item">
                             <div class="icon-img">
                                 <img src="./assets/images/Inclusive-Programming.png" alt="Hình ảnh icon"
                                     title="Inclusive Programming">
@@ -127,7 +152,7 @@
                             <h4>Inclusive Programming</h4>
                             <p>Welcoming to all participants regardless of shul affiliation</p>
                         </div>
-                        <div class="our-group-row">
+                        <div class="feature-item">
                             <div class="icon-img">
                                 <img src="./assets/images/Flexible-Learning.png" alt="Hình ảnh icon"
                                     title="Flexible Learning">
@@ -135,7 +160,7 @@
                             <h4>Flexible Learning</h4>
                             <p>Convenient scheduling that fits into your daily life</p>
                         </div>
-                        <div class="our-group-row">
+                        <div class="feature-item">
                             <div class="icon-img">
                                 <img src="./assets/images/High-Impact-Classes.png" alt="Hình ảnh icon"
                                     title="High-Impact classes">
@@ -144,7 +169,7 @@
                             <h4>High-Impac Classes</h4>
                             <p>Engaging sessions designed for meaningful growth</p>
                         </div>
-                        <div class="our-group-row">
+                        <div class="feature-item">
                             <div class="icon-img">
                                 <img src="./assets/images/Community-Events.png" alt="Hình ảnh icon"
                                     title="Community Events">
@@ -331,7 +356,58 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-inner swiper-slide slide-item-badge-1">
+                        <div class="badge-black">Daily Learning</div>
+                        <div class="slide-overshow">
+                            <div class="card-image">
+                                <img src="./assets/images/Morning-Shiurim.png" alt="Hình ảnh lỗi"
+                                    title="Daily Learning">
+                                <div class="card-content">
+                                    <h3>Morning Shiurim & <br>Chavruta Learning</h3>
+                                    <p>Begin your day with structured Torah study</p>
+                                </div>
+                            </div>
 
+                            <div class="card-hover-overlay">
+                                <div class="hover-header">
+                                    <div class="stamp-circle">
+                                        <span>Last cycle</span>
+                                        <hr>
+                                        <strong>Winter 2025</strong>
+                                    </div>
+                                </div>
+
+                                <div class="hover-body">
+                                    <h3>Morning Shiurim & <br>Chavruta Learning</h3>
+                                    <p class="description">Begin your day with <br> structured Torah study</p>
+
+                                    <div class="info-list">
+                                        <div class="info-item">
+                                            <span>Audience</span>
+                                            <span>All Levels</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span>Format</span>
+                                            <span>Group & Pairs</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span>Pace</span>
+                                            <span>Daily • 90 min</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span>Library</span>
+                                            <span>18 recorded sessions</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hover-footer">
+                                    <a href="#" class="btn-watch">Watch class ➔</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-inner swiper-slide slide-item-badge-2">
                         <div class="badge-black">Advanced Study</div>
                         <div class="slide-overshow">
@@ -457,12 +533,15 @@
                 <div class="grid-item item-1">
                     <div class="overlay"></div>
                     <div class="content">
-                        <h3>Siyums & Special Shiurim</h3>
+                        <h3>Siyums & Special <br> Shiurim</h3>
                         <p class="p-context">Celebrate Torah learning achievements</p>
 
                         <div class="expand-content">
                             <div class="left-actions">
-                                <button class="participate-btn">Participate &rarr;</button>
+                                <button class="participate-btn" data-img="./assets/images/anh1.jpg"
+                                    data-title="Siyums & Special Shiurim" onclick="openForm(this)">Participate
+                                    &rarr;</button>
+
                                 <a href="#" class="view-link">View past recordings &rarr;</a>
                             </div>
                             <div class="info-box icon-color-1">
@@ -482,12 +561,14 @@
                 <div class="grid-item item-2">
                     <div class="overlay"></div>
                     <div class="content">
-                        <h3>Annual Retreats & Shabbatons</h3>
+                        <h3>Annual Retreats & <br> Shabbatons</h3>
                         <p class="p-context">Strengthening our bond as a learning community</p>
 
                         <div class="expand-content">
                             <div class="left-actions">
-                                <button class="participate-btn">Participate &rarr;</button>
+                                <button class="participate-btn" data-img="./assets/images/anh1.jpg"
+                                    data-title="Siyums & Special Shiurim" onclick="openForm(this)">Participate
+                                    &rarr;</button>
                                 <a href="#" class="view-link">View past recordings &rarr;</a>
                             </div>
                             <div class="info-box icon-color-2">
@@ -512,7 +593,9 @@
 
                         <div class="expand-content">
                             <div class="left-actions">
-                                <button class="participate-btn">Participate &rarr;</button>
+                                <button class="participate-btn" data-img="./assets/images/anh1.jpg"
+                                    data-title="Siyums & Special Shiurim" onclick="openForm(this)">Participate
+                                    &rarr;</button>
                                 <a href="#" class="view-link">View past recordings &rarr;</a>
                             </div>
                             <div class="info-box icon-color-3">
@@ -537,7 +620,9 @@
 
                         <div class="expand-content">
                             <div class="left-actions">
-                                <button class="participate-btn">Participate &rarr;</button>
+                                <button class="participate-btn" data-img="./assets/images/anh1.jpg"
+                                    data-title="Siyums & Special Shiurim" onclick="openForm(this)">Participate
+                                    &rarr;</button>
                                 <a href="#" class="view-link">View past recordings &rarr;</a>
                             </div>
                             <div class="info-box icon-color-4">
@@ -554,7 +639,58 @@
 
                     </div>
                 </div>
+                <!--Form popup-->
+                <div id="formModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-flex">
+                            <div class="modal-left">
+                                <img id="modal-display-img" src="./assets/images/card5.png" alt="Event Image">
+                            </div>
+                            <div class="modal-right">
 
+                                <span class="close-btn" onclick="closeForm()">&times;</span>
+                                <div class="modal-right-content">
+                                    <h3 id="modal-display-title">Participate in Community <span>Events</span></h3>
+                                    <p class="content-p" id="msg-top">Let us know you’re interested, and we’ll follow up
+                                        with
+                                        details
+                                        about upcoming
+                                        events.</p>
+                                    <p class="content-span">You're interested in: <span id="event-name"></span></p>
+
+                                    <form id="participation-form">
+                                        <div class="input-group">
+                                            <input type="text" id="full-name" required placeholder=" ">
+                                            <label for="full-name">Full Name *</label>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <input type="email" id="email" required placeholder=" ">
+                                            <label for="email">Email Address *</label>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <input type="tel" id="phone" placeholder=" ">
+                                            <label for="phone">Phone <sup class="optional">(Optional)</sup></label>
+                                        </div>
+
+                                        <button type="submit" class="submit-btn">Participate &rarr;</button>
+                                    </form>
+
+                                    <p class="footer-note">We'll be in touch shortly with next steps.</p>
+                                </div>
+
+
+                                <div id="thanks-view" class="hidden">
+                                    <h2 class="thanks-title">Thank you for your interest!</h2>
+                                    <p class="moving-text"></p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -778,7 +914,6 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 
     <script src="./js/main.js"></script>
 </body>
