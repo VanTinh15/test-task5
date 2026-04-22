@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         grabCursor: true,
         loop: false,
+         watchSlidesProgress: true,
         roundLengths: true,
 
-     
 
         navigation: {
             nextEl: '.next-btn',
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         breakpoints: {
 
-            320: {
+            440: {
                 slidesPerView: 1.2,
-                spaceBetween: 15
+                spaceBetween: 20
             },
 
             768: {
@@ -40,14 +40,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const swiper2 = new Swiper('.mySwiper', {
-        slidesPerView: "auto",
-        spaceBetween: 0,
-        
+        slidesPerView: 1.2,
+        spaceBetween: 15,
         speed: 800,
         grabCursor: true,
         watchSlidesProgress: true,
         roundLengths: true,
-        
 
         pagination: {
             el: ".swiper-pagination",
@@ -58,6 +56,22 @@ document.addEventListener('DOMContentLoaded', function () {
             nextEl: ".next",
             prevEl: ".prev",
         },
+
+
+        breakpoints: {
+            440: {
+                slidesPerView: 1.15,
+                spaceBetween: 20
+            },
+            768: {
+                slidesPerView: 2.5,
+                spaceBetween: 15
+            },
+            1024: {
+                slidesPerView: 'auto',
+                spaceBetween: 15
+            }
+        }
     });
 
     const menuToggle = document.querySelector('.menu-toggle');
@@ -133,6 +147,34 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         updateCount();
+    });
+
+    const showBtns = document.querySelectorAll('.js-show-details');
+
+    const hideBtns = document.querySelectorAll('.js-hide-details');
+
+
+    showBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+
+            const cardInner = this.closest('.slide-overshow');
+            const overlay = cardInner.querySelector('.card-hover-overlay');
+
+            if (overlay) {
+                overlay.classList.add('is-active');
+            }
+        });
+    });
+
+    hideBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const cardInner = this.closest('.slide-overshow');
+            const overlay = cardInner.querySelector('.card-hover-overlay');
+
+            if (overlay) {
+                overlay.classList.remove('is-active');
+            }
+        });
     });
 
 });
