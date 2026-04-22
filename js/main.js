@@ -1,54 +1,59 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     const swiper1 = new Swiper('.carousel-container', {
-        slidesPerView: 1.2,
-        spaceBetween: 20,
-
+        speed: 800,
         grabCursor: true,
-        loop: false,
-         watchSlidesProgress: true,
-        roundLengths: true,
 
+        loop: true,
+        loopSlides: 5,
+
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 20,
 
         navigation: {
             nextEl: '.next-btn',
             prevEl: '.prev-btn',
         },
-
         pagination: {
             el: '.swiper-pagination',
             type: 'progressbar',
         },
 
-        keyboard: {
-            enabled: true,
-        },
-
         breakpoints: {
-
             440: {
-                slidesPerView: 1.2,
-                spaceBetween: 20
-            },
-
-            768: {
-                slidesPerView: 'auto',
+                slidesPerView: 1,
+                spaceBetween: 15,
                 centeredSlides: false,
-                spaceBetween: 20
+            },
+            768: {
+                slidesPerView: 2.2,
+                spaceBetween: 20,
+                centeredSlides: false,
+            },
+            1240: {
+                slidesPerView: 3.2,
+                spaceBetween: 20,
+                centeredSlides: false,
+                slidesPerGroup: 1,
             }
         }
     });
 
-    const swiper2 = new Swiper('.mySwiper', {
-        slidesPerView: 1.2,
-        spaceBetween: 15,
+    const swiper = new Swiper(".mySwiper", {
         speed: 800,
         grabCursor: true,
-        watchSlidesProgress: true,
-        roundLengths: true,
+        slidesPerView: 1.1,
+        slidesPerGroup: 1,
+
+        centeredSlides: true, 
+        centeredSlidesBounds: true,
+
+        spaceBetween: 20,
+        watchOverflow: true,
 
         pagination: {
-            el: ".swiper-pagination",
+            el: ".mySwiper .swiper-pagination",
             type: "progressbar",
         },
 
@@ -57,155 +62,149 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: ".prev",
         },
 
-
         breakpoints: {
             440: {
-                slidesPerView: 1.15,
-                spaceBetween: 20
+                slidesPerView: 1.4,
+                slidesPerGroup: 1,
+                spaceBetween: 15,
+                slidesOffsetAfter: 10,
             },
+
             768: {
-                slidesPerView: 2.5,
-                spaceBetween: 15
+                slidesPerView: 2.6,
+                slidesPerGroup: 1,
+                centeredSlides: false,
+                spaceBetween: 20,
+                slidesOffsetAfter: 20,
             },
-            1024: {
-                slidesPerView: 'auto',
-                spaceBetween: 15
-            }
-        }
+
+            1240: {
+                slidesPerView: 2.2,
+                slidesPerGroup: 1,
+                centeredSlides: false,
+                spaceBetween: 40,
+                slidesOffsetAfter: 40,
+            },
+        },
     });
 
+    // menu mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const menuHeader = document.querySelector('.menu-header');
 
-    menuToggle.addEventListener('click', function () {
-
-        menuHeader.classList.toggle('active');
-
-
-        if (menuHeader.classList.contains('active')) {
-            menuToggle.innerHTML = '&#10005;';
-        } else {
-            menuToggle.innerHTML = '&#9776;';
-        }
-    });
-
-    const menuLinks = document.querySelectorAll('.menu-header a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuHeader.classList.remove('active');
-            menuToggle.innerHTML = '&#9776;';
+    if (menuToggle && menuHeader) {
+        menuToggle.addEventListener('click', function () {
+            const isActive = menuHeader.classList.toggle('active');
+            menuToggle.innerHTML = isActive ? '&#10005;' : '&#9776;';
         });
-    });
 
-    //popup của together
+        const menuLinks = document.querySelectorAll('.menu-header a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuHeader.classList.remove('active');
+                menuToggle.innerHTML = '&#9776;';
+            });
+        });
+    }
+
+    // form dang ky popup
     const participationForm = document.getElementById('participation-form');
-
     if (participationForm) {
         participationForm.addEventListener('submit', function (e) {
-
             e.preventDefault();
 
             const formContainer = document.querySelector('.modal-right-content');
             const thanksView = document.getElementById('thanks-view');
             const msgTopElement = document.getElementById('msg-top');
-            const movingTextPlaceholder = thanksView.querySelector('.moving-text');
+            const movingTextPlaceholder = thanksView?.querySelector('.moving-text');
 
             if (formContainer && thanksView) {
-
                 if (msgTopElement && movingTextPlaceholder) {
-                    movingTextPlaceholder.innerText = msgTopElement.innerText;
+                    movingTextPlaceholder.textContent = msgTopElement.textContent;
                 }
-
                 formContainer.style.display = 'none';
-
                 thanksView.classList.remove('hidden');
                 thanksView.style.display = 'flex';
             }
         });
     }
 
-    //js nhảy số
+    // hiệu ứng số nhảy
     const counters = document.querySelectorAll('.counter');
-    const speed = 200;
 
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
+    const countObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = 1000;
+                const increment = target / (speed / 16); // 16ms là 1 frame (60fps)
 
-
-            const inc = target / speed;
-
-            if (count < target) {
-
-                counter.innerText = Math.ceil(count + inc);
-
-                setTimeout(updateCount, 10);
-            } else {
-                counter.innerText = target;
-            }
-        };
-
-        updateCount();
-    });
-
-    const showBtns = document.querySelectorAll('.js-show-details');
-
-    const hideBtns = document.querySelectorAll('.js-hide-details');
-
-
-    showBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-
-            const cardInner = this.closest('.slide-overshow');
-            const overlay = cardInner.querySelector('.card-hover-overlay');
-
-            if (overlay) {
-                overlay.classList.add('is-active');
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        requestAnimationFrame(updateCount); 
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+                observer.unobserve(counter); 
             }
         });
+    }, { threshold: 0.5 }); 
+
+    counters.forEach(counter => countObserver.observe(counter));
+
+    // show, hide - details
+    document.addEventListener('click', function (e) {
+        
+        if (e.target.closest('.js-show-details')) {
+            const card = e.target.closest('.card-inner');
+            card?.classList.add('active');
+        }
+        if (e.target.closest('.js-hide-details')) {
+            const card = e.target.closest('.card-inner');
+            card?.classList.remove('active');
+        }
     });
-
-    hideBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const cardInner = this.closest('.slide-overshow');
-            const overlay = cardInner.querySelector('.card-hover-overlay');
-
-            if (overlay) {
-                overlay.classList.remove('is-active');
-            }
-        });
-    });
-
 });
-function openForm(button) {
 
+
+function openForm(button) {
     const gridItem = button.closest('.grid-item');
+    if (!gridItem) return;
 
     const computedStyle = window.getComputedStyle(gridItem);
-
     let bgImage = computedStyle.backgroundImage;
-
-    let imageUrl = bgImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+   
+    let imageUrl = bgImage.slice(4, -1).replace(/"/g, "");
 
     const modal = document.getElementById("formModal");
     const modalImg = document.getElementById("modal-display-img");
     const modalTitle = document.getElementById("event-name");
+    const itemTitle = gridItem.querySelector('h3')?.innerText || "";
 
-    const itemTitle = gridItem.querySelector('h3').innerText;
-
-    modalImg.src = imageUrl;
-    modalTitle.innerText = itemTitle;
-    modal.style.display = "flex";
+    if (modal && modalImg && modalTitle) {
+        modalImg.src = imageUrl;
+        modalTitle.innerText = itemTitle;
+        modal.style.display = "flex";
+    }
 }
 
 function closeForm() {
-    document.getElementById("formModal").style.display = "none";
-}
-
-window.onclick = function (event) {
     const modal = document.getElementById("formModal");
-    if (event.target == modal) {
+    if (modal) {
         modal.style.display = "none";
+        document.body.style.overflow = 'auto';
     }
 }
+
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById("formModal");
+    if (event.target === modal) {
+        closeForm();
+    }
+});
