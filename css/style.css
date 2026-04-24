@@ -1801,7 +1801,7 @@ body {
 }
 
 .bottom-footer a {
-    font-style: SemiBold;
+    font-weight: 400;
     color: white;
 
 }
@@ -2291,9 +2291,9 @@ body {
 
     /* ============================== đang sửa icon màu trắng trong even===================== */
     .overlay {
-        background: radial-gradient(circle at 60% 40%,
+        background: radial-gradient(circle at 60% 30%,
                 rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.3) 60%,
+                rgba(0, 0, 0, 0.4) 40%,
                 rgba(0, 0, 0, 0.85) 100%);
     }
 
@@ -2536,6 +2536,7 @@ body {
 }
 
 @media screen and (max-width:440px) {
+
     .hero-banner-actions .btn a {
         width: 100%;
         text-align: center;
@@ -2645,4 +2646,98 @@ body {
 
     }
 
+}
+
+@media screen and (max-width:300px) {
+
+    .hero-banner-content h1 {
+        font-size: 60px;
+        margin-bottom: 350px;
+        line-height: 100%;
+    }
+
+    .sup-content h3,
+    .sup-content h3 span {
+        font-size: 28px;
+    }
+
+    .btn-sup {
+        white-space: normal;
+    }
+
+    .img-logo img {
+        margin-top: 0;
+        margin-bottom: 10px;
+        height: 40px;
+    }
+
+    .menu-toggle {
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .content-main {
+        display: flex;
+        flex-direction: column;
+        padding: 180px 20px 20px 20px;
+        margin: 0;
+    }
+
+    .header-logo img {
+        width: 140px;
+        display: block;
+    }
+
+    .hero-banner-content h1 {
+        font-size: 30px;
+        margin-bottom: 100px;
+    }
+
+    .about-content h2 {
+        font-size: 20px;
+    }
+
+    .hero-banner-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .row-content-about h3 span {
+        font-size: 32px;
+    }
+
+    .row-content-about h3,
+    .row-content-about p {
+        font-size: 14px;
+    }
+
+    .feature-item p {
+        width: 100%;
+        height: auto;
+    }
+
+    .to-content h3,
+    .to-content h3 span {
+        font-family: 'Instrument Serif';
+        font-weight: 400;
+        line-height: 120%;
+        font-size: 32px;
+        max-width: 580px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+    .title,
+    .orange-text {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
+    .mf-left {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
